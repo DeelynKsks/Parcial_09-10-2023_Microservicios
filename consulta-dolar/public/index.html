@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dólar en Argentina</title>
+    <script>
+        window.onload = async function() {
+            const response = await fetch('/api');
+            const data = await response.json()
+            document.getElementById('oficialCompra').textContent = 'Dólar Oficial Compra: ' + data.dolarOficial.value_buy;
+            document.getElementById('oficialVenta').textContent = 'Dólar Oficial Venta: ' + data.dolarOficial.value_sell;
+            document.getElementById('blueCompra').textContent = 'Dólar Blue Compra: ' + data.dolarBlue.value_buy;
+            document.getElementById('blueVenta').textContent = 'Dólar Blue Venta: ' + data.dolarBlue.value_sell;
+            document.getElementById('blueIntermedio').textContent = 'Dólar Blue Intermedio: ' + data.dolarBlue.value_avg;
+        }
+    </script>
+</head>
+<body>
+    <h1>Dólar en Argentina</h1>
+    <div>
+        <h3>Dólar oficial:</h3>
+        <p id="oficialCompra"></p>
+        <p id="oficialVenta"></p>
+    </div>
+    <div>
+        <h3>Dólar Blue:</h3>
+        <p id="blueCompra"></p>
+        <p id="blueVenta"></p>
+        <p id="blueIntermedio"></p>
+    </div>
+</body>
+</body>
+</html>
